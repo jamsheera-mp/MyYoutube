@@ -1,9 +1,21 @@
 
 
-const VideoCard = () =>{
+const VideoCard = ({info}) =>{
+    console.log("video info",info);
+
+    const {snippet, statistics }= info || {}
+    const {channelTitle,title,thumbnails} = snippet || {}
+
     return (
-        <div>
-            VideoCard
+        <div className="p-2 m-2 w-72 shadow">
+          <img className="rounded-lg"
+           src={thumbnails?.medium?.url}
+            alt="thumbnail" />
+          <ul>
+            <li className="font-bold py-2">{title}</li>
+            <li>{channelTitle || "Unknown Channel"}</li>
+            <li>{statistics?.viewCount?`${statistics.viewCount}  views`: "N/A"}</li>
+          </ul>
         </div>
     )
 }
