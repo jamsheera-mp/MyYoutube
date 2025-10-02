@@ -19,12 +19,17 @@ import {
   Feedback as FeedbackIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+
 
 const Sidebar = () =>{
-    const [isExpanded, setIsExpanded] = useState(true)
+
+    const isMenuOpen =  useSelector((store)=>store.app.isMenuOpen)
+    if(!isMenuOpen) return null
+
     return (
        
-        <div className= {` bg-white  shadow-lg border-r border-gray-200 transition-all duration-300 ${isExpanded ? "w-60" :"w-20"} `}>
+        <div className= {` bg-white  shadow-lg border-r border-gray-200 transition-all duration-300  `}>
             <div className=" flex justify-between items-center p-3 border-b border-gray-200">
                 
             <ul className="">

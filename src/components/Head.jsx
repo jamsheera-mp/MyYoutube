@@ -1,15 +1,24 @@
 
 
 import { Menu, Search, Bell, User } from "lucide-react"
+import { useDispatch } from "react-redux"
+import { toggleMenu } from "../redux/appSlice"
+
 
 const Head = () =>{
+     
+    const dispatch = useDispatch()
+
+    const toggleMenuHandler = () =>{
+        dispatch(toggleMenu())
+    }
     return (
         <header className="flex items-center justify-between p-3 shadow-md bg-white">
 
             {/* Left Section - Menu + Logo  */}
             <div className="flex items-center space-x-3 ">
                 
-                <Menu className="h-6 w-6 cursor-pointer text-gray-700"/>
+                <Menu className="h-6 w-6 cursor-pointer text-gray-700" onClick={toggleMenuHandler}/>
                 <img
                 className="h-6 cursor-pointer"
                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/508px-YouTube_Logo_2017.svg.png"
